@@ -1,0 +1,202 @@
+/* ============================================================
+   MEDICINES PAGE — Mapbox & Custom Styles
+   ============================================================ */
+
+/* Map Container */
+.pharmacy-map-container {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pharmacy-map-container .mapboxgl-map {
+  border-radius: 16px;
+}
+
+/* Custom Mapbox Marker */
+.pharmacy-marker {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pharmacy-marker:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+}
+
+.pharmacy-marker.active {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  border-color: #fff;
+  transform: scale(1.3);
+  box-shadow: 0 6px 24px rgba(245, 158, 11, 0.6);
+  z-index: 10;
+}
+
+.pharmacy-marker-inner {
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* User Location Marker */
+.user-marker {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3b82f6;
+  border: 3px solid white;
+  box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.25), 0 4px 12px rgba(59, 130, 246, 0.4);
+  animation: pulse-blue 2s infinite;
+}
+
+@keyframes pulse-blue {
+  0% { box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.25), 0 4px 12px rgba(59, 130, 246, 0.4); }
+  50% { box-shadow: 0 0 0 14px rgba(59, 130, 246, 0.08), 0 4px 12px rgba(59, 130, 246, 0.4); }
+  100% { box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.25), 0 4px 12px rgba(59, 130, 246, 0.4); }
+}
+
+/* Mapbox Popup */
+.mapboxgl-popup-content {
+  background: #1a1a2e !important;
+  color: #e0e0e0 !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  min-width: 200px;
+}
+
+.mapboxgl-popup-tip {
+  border-top-color: #1a1a2e !important;
+  border-bottom-color: #1a1a2e !important;
+}
+
+.mapboxgl-popup-close-button {
+  color: #9ca3af !important;
+  font-size: 18px !important;
+  right: 8px !important;
+  top: 8px !important;
+}
+
+.mapboxgl-popup-close-button:hover {
+  color: #10b981 !important;
+}
+
+.popup-shop-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: #10b981;
+  margin-bottom: 4px;
+}
+
+.popup-address {
+  font-size: 12px;
+  color: #9ca3af;
+  line-height: 1.4;
+}
+
+/* Glassmorphic Search Panel */
+.glass-panel {
+  background: rgba(10, 10, 20, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 16px;
+}
+
+/* Route Active indicator */
+.route-active-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  color: #60a5fa;
+  animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Suggestion dropdown */
+.suggestion-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  margin-top: 4px;
+  background: #1a1a2e;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.suggestion-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #d1d5db;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:hover {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.suggestion-item .alias-tag {
+  font-size: 11px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Mapbox controls override */
+.mapboxgl-ctrl-group {
+  background: #1a1a2e !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.mapboxgl-ctrl-group button {
+  background: #1a1a2e !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.mapboxgl-ctrl-group button:hover {
+  background: rgba(16, 185, 129, 0.15) !important;
+}
+
+.mapboxgl-ctrl-group button span {
+  filter: invert(1) brightness(0.8);
+}
