@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en" suppressHydrationWarning>
         <head>
-          <link rel="icon" href="/logo.png" sizes="any" />
+          <link rel="icon" href="/banner.png" sizes="any" />
         </head>
         <body className={`${inter.className}`}>
           <NextTopLoader color="#34d399" showSpinner={false} />
