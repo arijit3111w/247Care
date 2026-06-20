@@ -332,20 +332,20 @@ export function AppointmentCard({
                   </div>
                 </div>
               </div>
-              <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-3 w-full sm:w-auto mt-2 sm:mt-0 pt-3 sm:pt-0 border-t sm:border-t-0 border-[#1a1a1a]">
+              <div className="flex flex-col items-start sm:items-end gap-3 w-full sm:w-auto mt-3 sm:mt-0 pt-3 sm:pt-0 border-t sm:border-t-0 border-[#1a1a1a]">
                 <Badge
                   variant="outline"
                   className={
                     appointment.status === "COMPLETED"
-                      ? "bg-emerald-900/10 border-emerald-900/30 text-emerald-500 font-mono text-[10px] rounded-sm uppercase tracking-wider"
+                      ? "bg-emerald-900/10 border-emerald-900/30 text-emerald-500 font-mono text-[10px] rounded-sm uppercase tracking-wider w-fit"
                       : appointment.status === "CANCELLED"
-                      ? "bg-red-900/10 border-red-900/30 text-red-500 font-mono text-[10px] rounded-sm uppercase tracking-wider"
-                      : "bg-amber-900/10 border-amber-900/30 text-amber-500 font-mono text-[10px] rounded-sm uppercase tracking-wider"
+                      ? "bg-red-900/10 border-red-900/30 text-red-500 font-mono text-[10px] rounded-sm uppercase tracking-wider w-fit"
+                      : "bg-amber-900/10 border-amber-900/30 text-amber-500 font-mono text-[10px] rounded-sm uppercase tracking-wider w-fit"
                   }
                 >
                   [{appointment.status}]
                 </Badge>
-                <div className="flex gap-2 w-full sm:w-auto justify-end mt-1">
+                <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto mt-1">
                   {canMarkCompleted() && (
                     <Button
                       size="sm"
