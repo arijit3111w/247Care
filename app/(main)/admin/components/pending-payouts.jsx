@@ -183,7 +183,7 @@ export function PendingPayouts({ payouts }) {
               </DialogDescription>
             </DialogHeader>
 
-            <div className="space-y-6 py-4">
+            <div className="space-y-6 py-4 max-h-[60vh] overflow-y-auto pr-2">
               {/* Doctor Information */}
               <div className="space-y-4">
                 <div className="flex items-center gap-2">

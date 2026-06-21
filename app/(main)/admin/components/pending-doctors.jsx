@@ -147,7 +147,7 @@ export function PendingDoctors({ doctors }) {
               </DialogDescription>
             </DialogHeader>
 
-            <div className="space-y-6 py-4">
+            <div className="space-y-6 py-4 max-h-[60vh] overflow-y-auto pr-2">
               {/* Basic Info */}
               <div className="flex flex-col md:flex-row gap-6">
                 <div className="space-y-1 flex-1">
