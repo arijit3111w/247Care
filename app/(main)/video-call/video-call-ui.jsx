@@ -231,12 +231,12 @@ export default function VideoCall({ sessionId, token }) {
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Publisher (Your video) */}
-              <div className="relative border border-emerald-900/20 rounded-lg overflow-hidden">
-                <div className="bg-emerald-900/10 px-3 py-2 text-emerald-400 text-sm font-medium z-20 relative">
+              <div className="relative border border-emerald-900/20 rounded-lg overflow-hidden h-[300px] md:h-[400px] bg-muted/30">
+                <div className="absolute top-0 left-0 w-full bg-emerald-900/80 px-3 py-2 text-emerald-400 text-sm font-medium z-20 backdrop-blur-sm">
                   You
                 </div>
                 {!scriptLoaded && (
-                  <div className="absolute inset-0 flex items-center justify-center z-10 bg-muted/30">
+                  <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="bg-muted/20 rounded-full p-8">
                       <User className="h-12 w-12 text-emerald-400" />
                     </div>
@@ -244,17 +244,17 @@ export default function VideoCall({ sessionId, token }) {
                 )}
                 <div
                   id="publisher"
-                  className="w-full h-[300px] md:h-[400px] bg-muted/30 absolute inset-0 pt-10"
+                  className="w-full h-full absolute inset-0"
                 ></div>
               </div>
 
               {/* Subscriber (Other person's video) */}
-              <div className="relative border border-emerald-900/20 rounded-lg overflow-hidden">
-                <div className="bg-emerald-900/10 px-3 py-2 text-emerald-400 text-sm font-medium z-20 relative">
+              <div className="relative border border-emerald-900/20 rounded-lg overflow-hidden h-[300px] md:h-[400px] bg-muted/30">
+                <div className="absolute top-0 left-0 w-full bg-emerald-900/80 px-3 py-2 text-emerald-400 text-sm font-medium z-20 backdrop-blur-sm">
                   Other Participant
                 </div>
                 {(!isConnected || !scriptLoaded) && (
-                  <div className="absolute inset-0 flex items-center justify-center z-10 bg-muted/30">
+                  <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div className="bg-muted/20 rounded-full p-8">
                       <User className="h-12 w-12 text-emerald-400" />
                     </div>
@@ -262,7 +262,7 @@ export default function VideoCall({ sessionId, token }) {
                 )}
                 <div
                   id="subscriber"
-                  className="w-full h-[300px] md:h-[400px] bg-muted/30 absolute inset-0 pt-10"
+                  className="w-full h-full absolute inset-0"
                 ></div>
               </div>
             </div>
